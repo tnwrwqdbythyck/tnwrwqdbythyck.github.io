@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Hello world!">
+<meta name="description" content="什么是 node.js ? Node.js is a JavaScript runtime built on Chrome’V8 JavaScript engine. Node.js uses an event-driver,non-blocking I/O model that makes it lightweight and efficient.Node.js’package ecosyste">
 <meta property="og:type" content="article">
-<meta property="og:title" content="李闯">
-<meta property="og:url" content="http://yoursite.com/2017/11/14/Android/1/index.html">
+<meta property="og:title" content="node.js 学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/11/14/node.js 学习笔记/index.html">
 <meta property="og:site_name" content="李闯">
-<meta property="og:description" content="Hello world!">
+<meta property="og:description" content="什么是 node.js ? Node.js is a JavaScript runtime built on Chrome’V8 JavaScript engine. Node.js uses an event-driver,non-blocking I/O model that makes it lightweight and efficient.Node.js’package ecosyste">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-14T05:53:17.194Z">
+<meta property="og:updated_time" content="2017-11-20T09:33:00.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李闯">
-<meta name="twitter:description" content="Hello world!">
+<meta name="twitter:title" content="node.js 学习笔记">
+<meta name="twitter:description" content="什么是 node.js ? Node.js is a JavaScript runtime built on Chrome’V8 JavaScript engine. Node.js uses an event-driver,non-blocking I/O model that makes it lightweight and efficient.Node.js’package ecosyste">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/14/Android/1/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/14/node.js 学习笔记/"/>
 
 
 
 
 
-  <title> | 李闯</title>
+  <title>node.js 学习笔记 | 李闯</title>
   
 
 
@@ -160,7 +160,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">前半生与后半生的分界线</p>
       
   </div>
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/Android/1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/node.js 学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李闯">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">node.js 学习笔记</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-14T13:53:17+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-14T14:04:15+08:00">
                 2017-11-14
               </time>
             
@@ -299,10 +299,34 @@
       
 
       
-        <!--  -->
-<html>
-  <p>Hello world!</p>
-</html>
+        <h2 id="什么是-node-js"><a href="#什么是-node-js" class="headerlink" title="什么是 node.js ?"></a>什么是 node.js ?</h2><blockquote>
+<p>Node.js is a JavaScript runtime built on Chrome’V8 JavaScript engine. Node.js uses an event-driver,non-blocking I/O model that makes it lightweight and efficient.Node.js’package ecosystem,npm,is the largest ecosystem of open source libraries in the world.</p>
+<h2 id="原理学习"><a href="#原理学习" class="headerlink" title="原理学习"></a>原理学习</h2><ul>
+<li><a href="https://nodejs.org/api/repl.html" target="_blank" rel="external">熟悉’REPL’</a></li>
+<li><a href="https://nodejs.org/api/globals.html" target="_blank" rel="external">常用调用 Global Objects/util</a></li>
+<li>核心概念 Timers/Buffer/Events/Stream/Modules/Errors</li>
+<li><a href="https://nodejs.org/api/http.html" target="_blank" rel="external">拓展 File System/Http</a></li>
+</ul>
+</blockquote>
+<h2 id="node-js-Documentation"><a href="#node-js-Documentation" class="headerlink" title="node.js Documentation"></a>node.js Documentation</h2><h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a><strong><code>Stream</code></strong></h3><p>There are four fundamental stream types within Node.js:</p>
+<ul>
+<li><strong>Duplex and Transfrom</strong><ul>
+<li><strong><code>Duplex</code></strong> Duplex streams are streams that implements both Readable and Writable Examples of Duplex streams include:<ul>
+<li>TCP sockets</li>
+<li>zlib streams</li>
+<li>crypto streams</li>
+</ul>
+</li>
+<li><strong><code>Transform</code></strong> Transform streams are Duplex streams whres the output.Examples of Transform streams include:<ul>
+<li>zlib streams</li>
+<li>crypto streams    <h3 id="Events"><a href="#Events" class="headerlink" title="Events"></a><strong><code>Events</code></strong></h3></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The eventEmitter.emit() method allows an arbitrary set of arguments to be passed to the listener functions. It is important to keep in mind that when an ordinary listener function is called by the EventEmitter, the standard this keyword is intentionally set to reference the EventEmitter to which the listener is attached.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> myEmitter = <span class="keyword">new</span> MyEmitter();</div><div class="line">myEmitter.on(<span class="string">'event'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a, b, <span class="keyword">this</span>);</div><div class="line">  <span class="comment">// Prints:</span></div><div class="line">  <span class="comment">//   a b MyEmitter &#123;</span></div><div class="line">  <span class="comment">//     domain: null,</span></div><div class="line">  <span class="comment">//     _events: &#123; event: [Function] &#125;,</span></div><div class="line">  <span class="comment">//     _eventsCount: 1,</span></div><div class="line">  <span class="comment">//     _maxListeners: undefined &#125;</span></div><div class="line">&#125;);</div><div class="line">myEmitter.emit(<span class="string">'event'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -327,14 +351,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/11/14/前端学习笔记/" rel="next" title="CSS 学习笔记">
+                <i class="fa fa-chevron-left"></i> CSS 学习笔记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/14/Android/1/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/20/Python/" rel="prev" title="Python">
+                Python <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -387,8 +415,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -403,7 +440,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -411,6 +448,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
@@ -432,6 +478,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-node-js"><span class="nav-number">1.</span> <span class="nav-text">什么是 node.js ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理学习"><span class="nav-number">2.</span> <span class="nav-text">原理学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-Documentation"><span class="nav-number">3.</span> <span class="nav-text">node.js Documentation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream"><span class="nav-number">3.1.</span> <span class="nav-text">Stream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Events"><span class="nav-number">3.2.</span> <span class="nav-text">Events</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

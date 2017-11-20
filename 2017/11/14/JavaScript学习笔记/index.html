@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="曾因酒醉鞭名马，生怕情多累美人">
+<meta name="description" content="JavaScriptModule 语法 概述ES6 模块的设计思想，要尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定的东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。123456let &amp;#123;stat,exists,readFile&amp;#125; = require(&apos;fs&apos;);//等同于let">
 <meta property="og:type" content="article">
-<meta property="og:title" content="李闯">
-<meta property="og:url" content="http://yoursite.com/2017/11/14/Android/redux 学习笔记/index.html">
+<meta property="og:title" content="JavaScript 学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/11/14/JavaScript学习笔记/index.html">
 <meta property="og:site_name" content="李闯">
-<meta property="og:description" content="曾因酒醉鞭名马，生怕情多累美人">
+<meta property="og:description" content="JavaScriptModule 语法 概述ES6 模块的设计思想，要尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定的东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。123456let &amp;#123;stat,exists,readFile&amp;#125; = require(&apos;fs&apos;);//等同于let">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-14T05:53:17.175Z">
+<meta property="og:updated_time" content="2017-11-20T09:33:00.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李闯">
-<meta name="twitter:description" content="曾因酒醉鞭名马，生怕情多累美人">
+<meta name="twitter:title" content="JavaScript 学习笔记">
+<meta name="twitter:description" content="JavaScriptModule 语法 概述ES6 模块的设计思想，要尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定的东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。123456let &amp;#123;stat,exists,readFile&amp;#125; = require(&apos;fs&apos;);//等同于let">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/14/Android/redux 学习笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/14/JavaScript学习笔记/"/>
 
 
 
 
 
-  <title> | 李闯</title>
+  <title>JavaScript 学习笔记 | 李闯</title>
   
 
 
@@ -160,7 +160,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">前半生与后半生的分界线</p>
       
   </div>
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/Android/redux 学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/JavaScript学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李闯">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript 学习笔记</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-14T13:53:17+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-14T00:00:00+08:00">
                 2017-11-14
               </time>
             
@@ -299,7 +299,32 @@
       
 
       
-        
+        <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="Module-语法"><a href="#Module-语法" class="headerlink" title="Module 语法"></a>Module 语法</h2><ol>
+<li>概述<br>ES6 模块的设计思想，要尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定的东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> &#123;stat,exists,readFile&#125; = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="comment">//等同于</span></div><div class="line"><span class="keyword">let</span> _fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">let</span> stat = _fs.stat;</div><div class="line"><span class="keyword">let</span> exists = _fs.exists;</div><div class="line"><span class="keyword">let</span> readFile = _fs.readFile;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>上述代码的实质是整体加载<code>fs</code>模块（即加载<code>fs</code>的所有方法），生成一个对象（<code>_fs</code>）,然后再从这个对象上面读取3个方法。这种加载称为“运行时加载”，因为只有运行时才能得到这个对象，导致完全没办法在编译时做“静态优化”。<br>ES6的模块不是对象，而是通过<code>export</code>命令显式指定输出的代码，再通过<code>import</code>命令输入。</p>
+<ol>
+<li>严格模式<br>ES6 的模块自动采用严格模式，不管你有没有在模块头部加上<code>&quot;user strict&quot;</code>.<br>严格模式主要有以下限制。<ul>
+<li>变量必须声明后使用</li>
+<li>函数的参数不能有同名属性，否则报错</li>
+<li>不能使用<code>with</code>语句</li>
+<li>不能对只读属性赋值，否则报错</li>
+<li>不能使用前缀 0 表示八进制数，否则报错</li>
+<li>不能删除不可删除的属性，否则报错</li>
+<li>不能删除变量<code>delete prop</code>,会报错，只能删除属性<code>delete global[prop]</code></li>
+<li><code>eval</code>不会再它外层作用域引入变量</li>
+<li><code>eval</code>和<code>arguments</code>不能被重复赋值</li>
+<li><code>arguments</code>不会反映函数参数的变化</li>
+<li>不能使用<code>arguments.callee</code></li>
+<li>不能使用<code>arguments.caller</code></li>
+<li>禁止<code>this</code>指向全局对象</li>
+<li>不能使用<code>fn.caller</code>和<code>fn.arguments</code>获取函数调用的堆栈</li>
+<li>增加了保留字（比如<code>protected</code>、<code>static</code>和<code>interface</code>）<br>注意：在 ES6模块中，顶层的<code>this</code>指向<code>undefined</code>,即不应该在顶层代码使用<code>this</code>.</li>
+</ul>
+</li>
+</ol>
+
       
     </div>
     
@@ -323,18 +348,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/14/Android/react 学习笔记/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/14/Android/react-native 学习笔记/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/14/react 学习笔记/" rel="prev" title="react 学习笔记">
+                react 学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -387,8 +408,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -403,7 +433,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -411,6 +441,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
@@ -432,6 +471,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Module-语法"><span class="nav-number">1.1.</span> <span class="nav-text">Module 语法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
